@@ -1,0 +1,50 @@
+{
+    "json": {
+        "agent": {
+            "http": {
+                "schema": "http",
+                "host": "localhost",
+                "port": 7897
+            },
+            "mqtt": {
+                "host": "localhost",
+                "port": 1883
+            },
+            "amqp": {
+                "host": "localhost",
+                "port": 5672,
+                "exchange": "iota-exchange",
+                "queue": "iotaqueue"
+            }
+        },
+        "devices": [
+            {
+                "id": "JSON000",
+                "transport": "http",
+                "attributes": [
+                    {
+                        "key": "temperature-0",
+                        "valueGenerator": "RANDOM_INT",
+                        "cron": "30 3-6,20-23 * * *"
+                    },
+                    {
+                        "key": "temperature-1",
+                        "valueGenerator": "RANDOM_INT",
+                        "cron": "@hourly"
+                    }
+                ]
+            },
+            {
+                "id": "JSON001",
+                "transport": "mqtt",
+                "attributes": [
+                    {
+                        "key": "temperature-0",
+                        "valueGenerator": "RANDOM_INT",
+                        "cron": "@every 1h30m"
+                    }
+                ]
+            }
+        ]
+    }
+}
