@@ -1,10 +1,14 @@
 {
-    "json": {
-        "agent": {
+    "agents": {
+        "json": {
             "http": {
                 "schema": "http",
                 "host": "localhost",
-                "port": 7897
+                "port": 7897,
+                "defaults": {
+                    "key": "1234",
+                    "resource": "/iot/json"
+                }
             },
             "mqtt": {
                 "host": "localhost",
@@ -16,35 +20,49 @@
                 "exchange": "iota-exchange",
                 "queue": "iotaqueue"
             }
+        }
+    },
+    "devices": [
+        {
+            "id": "JSON000",
+            "protocol": "json",
+            "transport": "http",
+            "attributes": [
+                {
+                    "key": "temperature-0",
+                    "valueGenerator": "random_int",
+                    "cron": "@every 5s"
+                },
+                {
+                    "key": "temperature-1",
+                    "valueGenerator": "random_int",
+                    "cron": "@every 1s"
+                }
+            ]
         },
-        "devices": [
-            {
-                "id": "JSON000",
-                "transport": "http",
-                "attributes": [
-                    {
-                        "key": "temperature-0",
-                        "valueGenerator": "RANDOM_INT",
-                        "cron": "30 3-6,20-23 * * *"
-                    },
-                    {
-                        "key": "temperature-1",
-                        "valueGenerator": "RANDOM_INT",
-                        "cron": "@hourly"
-                    }
-                ]
-            },
-            {
-                "id": "JSON001",
-                "transport": "mqtt",
-                "attributes": [
-                    {
-                        "key": "temperature-0",
-                        "valueGenerator": "RANDOM_INT",
-                        "cron": "@every 1h30m"
-                    }
-                ]
-            }
-        ]
-    }
+        {
+            "id": "JSON001",
+            "protocol": "loraw",
+            "transport": "http",
+            "attributes": [
+                {
+                    "key": "temperature-0",
+                    "valueGenerator": "random_float",
+                    "cron": "@every 10s"
+                }
+            ]
+        },
+        {
+            "id": "JSON002",
+            "protocol": "ul",
+            "transport": "http",
+            "attributes": [
+                {
+                    "key": "temperature-0",
+                    "valueGenerator": "random_int",
+                    "cron": "@every 3s"
+                }
+            ]
+        }
+    ]
 }
