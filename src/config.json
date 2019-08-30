@@ -4,11 +4,7 @@
             "http": {
                 "schema": "http",
                 "host": "localhost",
-                "port": 7897,
-                "defaults": {
-                    "key": "1234",
-                    "resource": "/iot/json"
-                }
+                "port": 7897
             },
             "mqtt": {
                 "host": "localhost",
@@ -19,6 +15,10 @@
                 "port": 5672,
                 "exchange": "iota-exchange",
                 "queue": "iotaqueue"
+            },
+            "defaults": {
+                "key": "1234",
+                "resource": "/iot/json"
             }
         }
     },

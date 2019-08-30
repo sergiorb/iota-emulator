@@ -10,18 +10,6 @@ type SHP struct {
 	Port	uint16	`json: port`
 }
 
-type Http struct {
-	Schema		string			`json: schema`
-	Host		string			`json: host`
-	Port		uint16			`json: port`
-	Defaults	HttpDefaults	`json: defaults`
-}
-
-type HttpDefaults struct {
-	Key			string	`json: key`
-	Resource	string	`json: resource`
-}
-
 type Mqtt struct {
 	Host	string	`json: host`
 	Port	uint16	`json: port`

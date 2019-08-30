@@ -7,20 +7,6 @@ type SchedulerStore struct {
   Running  bool
 }
 
-/* func Init() {
-
-  InternalStore = SchedulerStore {
-      cron: cron.New(),
-  }
-
-  Store = SchedulerStore {
-      cron: cron.New(),
-  }
-
-  Store.Start()
-  InternalStore.Start()
-}
- */
 func BuildStore() SchedulerStore {
 
   return SchedulerStore {

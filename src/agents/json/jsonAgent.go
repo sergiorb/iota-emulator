@@ -20,11 +20,11 @@ func (a *JsonAgent) Send(req agents.Request, transport transports.Transport) {
 	var response *http.Response;
 	
 	if req.Key == "" {
-		req.Key = a.Config.Http.Defaults.Key
+		req.Key = a.Config.Defaults.Key
 	}
 
 	if req.Resource == "" {
-		req.Resource = a.Config.Http.Defaults.Resource
+		req.Resource = a.Config.Defaults.Resource
 	}
 	
 	url := fmt.Sprintf("%v://%v:%v%v?k=%v&i=%v", 
